@@ -9,11 +9,12 @@ class HappyArray {
             val tempList = sadArray.toMutableList()
 
             while (i < tempList.size - 1) {
-                if ( i != 0 && tempList[i] > tempList[i + 1] + tempList[i - 1]) {
-                    tempList.removeAt(i)
-                    i --
-                } else {
-                    i ++
+                when {
+                    !(i == 0 || tempList[i] <= tempList[i + 1] + tempList[i - 1]) -> {
+                        tempList.removeAt(i)
+                        i --
+                    }
+                    else -> i ++
                 }
             }
             return tempList.toIntArray()
