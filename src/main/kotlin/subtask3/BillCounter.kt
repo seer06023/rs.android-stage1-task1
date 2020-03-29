@@ -6,12 +6,15 @@ class BillCounter {
     fun calculateFairlySplit(bill: IntArray, k: Int, b: Int): String {
         var sum = 0
 
-        for (i in bill.indices) if (i != k) {
-            sum += bill[i]
+        bill.indices.forEach {
+            when {
+                k != it -> sum += bill[it]
+            }
         }
         sum = sum / 2
 
-        when {sum == b -> return "Bon Appetit"
+        when {
+            b == sum -> return "Bon Appetit"
             else -> return "${b - sum}"
         }
     }
