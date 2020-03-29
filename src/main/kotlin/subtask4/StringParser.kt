@@ -12,15 +12,15 @@ class StringParser {
 
 fun StringParser.getResult(inputString: String): Array<String> {
     val output: MutableSet<String> = mutableSetOf()
-    inputString.indices.forEach { i ->
-        val firstBracket = inputString[i]
+    inputString.indices.forEach {
+        val firstBracket = inputString[it]
         when (firstBracket) {
             '(', '[', '<' -> {
                 val secondBracket = closeBracket(firstBracket)
                 var isClosed: Boolean = false
-                loop@ for (j in i + 1 until inputString.length) {
+                loop@ for (j in it + 1 until inputString.length) {
                     if (inputString[j] == secondBracket) {
-                        output += inputString.substring(i+1, j)
+                        output += inputString.substring(it+1, j)
                         isClosed = true
                     }
                     when {
