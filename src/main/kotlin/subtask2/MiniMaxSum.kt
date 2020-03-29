@@ -16,12 +16,12 @@ class MiniMaxSum {
         (0..input.size - 1).forEach { i ->
             tempArray[i] = sumAll - input[i]
 
-            max = if (tempArray[i] > max) {
-                tempArray[i]
-            } else max
-            min = if (tempArray[i] < min) {
-                tempArray[i]
-            } else min
+            if (tempArray[i] > max) {
+                max = tempArray[i]
+            } else max = max
+            if (tempArray[i] < min) {
+                min = tempArray[i]
+            } else min = min
         }
         outputArray.add(min)
         outputArray.add(max)
