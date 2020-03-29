@@ -2,8 +2,20 @@ package subtask1
 
 class HappyArray {
 
-    // TODO: Complete the following function
+
     fun convertToHappy(sadArray: IntArray): IntArray {
-        throw NotImplementedError("Not implemented")
+            var i = 0
+
+            val tempList = sadArray.toMutableList()
+
+            while (i < tempList.size - 1) {
+                if ( i != 0 && tempList[i] > tempList[i + 1] + tempList[i - 1]) {
+                    tempList.removeAt(i)
+                    i --
+                } else {
+                    i ++
+                }
+            }
+            return tempList.toIntArray()
+        }
     }
-}
